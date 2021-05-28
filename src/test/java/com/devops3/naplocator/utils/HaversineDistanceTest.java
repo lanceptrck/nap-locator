@@ -2,8 +2,6 @@ package com.devops3.naplocator.utils;
 
 import com.devops3.naplocator.model.Branch;
 import com.devops3.naplocator.model.Coordinate;
-import org.aspectj.lang.annotation.Before;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

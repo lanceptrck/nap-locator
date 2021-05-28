@@ -1,14 +1,21 @@
 package com.devops3.naplocator.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import org.springframework.data.rest.core.annotation.Description;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Coordinate {
 
+
+    @NotBlank
+    @Description("Latitude of a given coordinate")
     private String lat;
+    @NotBlank
+    @Description("Latitude of a given coordinate")
     private String lon;
 
     public Coordinate(){

@@ -24,11 +24,6 @@ class AuthController {
     @Autowired
     private MyUserDetailsService userDetailsService;
 
-    @GetMapping("/hello")
-    public String hello(){
-        return "Hello";
-    }
-
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
