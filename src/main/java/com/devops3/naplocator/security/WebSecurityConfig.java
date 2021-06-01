@@ -1,6 +1,6 @@
 package com.devops3.naplocator.security;
 
-import com.devops3.naplocator.filer.JwtRequestFilter;
+import com.devops3.naplocator.filter.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;

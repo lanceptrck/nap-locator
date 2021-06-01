@@ -1,4 +1,4 @@
-package com.devops3.naplocator.filer;
+package com.devops3.naplocator.filter;
 
 import com.devops3.naplocator.MyUserDetailsService;
 import com.devops3.naplocator.utils.JwtUtil;
