@@ -3,9 +3,9 @@ package com.devops3.naplocator.controller;
 import com.devops3.naplocator.dto.Data;
 import com.devops3.naplocator.dto.EntityDTO;
 import com.devops3.naplocator.dto.Status;
-import com.devops3.naplocator.model.Branch;
+import com.devops3.naplocator.model.NapBox;
 import com.devops3.naplocator.model.Coordinate;
-import com.devops3.naplocator.service.BranchRepository;
+import com.devops3.naplocator.service.NapBoxRepository;
 import com.devops3.naplocator.utils.HaversineDistance;
 import com.devops3.naplocator.utils.MapUtil;
 import io.swagger.v3.oas.annotations.Operation;
@@ -17,39 +17,38 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("api/v1/branch")
-public class BranchController {
+public class NapBoxController {
 
     @Autowired
-    private BranchRepository repository;
+    private NapBoxRepository repository;
 
-    private final Logger logger = LoggerFactory.getLogger(BranchController.class);
+    private final Logger logger = LoggerFactory.getLogger(NapBoxController.class);
 
-    public BranchController(BranchRepository repository) {
+    public NapBoxController(NapBoxRepository repository) {
         this.repository = repository;
 
     }
 
-    @Operation(summary = "Find the nearest branch given a coordinate")
+    @Operation(summary = "Find the nearest nap box given a coordinate")
     @PostMapping("nearest")
-    public ResponseEntity<EntityDTO> findNearestBranch(@RequestBody(required = true) Coordinate coordinate) {
+    public ResponseEntity<EntityDTO> findNearestNapBox(@RequestBody(required = true) Coordinate coordinate) {
 
-        logger.debug("Finding the nearest branch of: ", coordinate);
+        logger.debug("Finding the nearest nap box of: ", coordinate);
 
-        Map<Branch, Double> branchDistanceMap = new LinkedHashMap<>();
+        Map<NapBox, Double> branchDistanceMap = new LinkedHashMap<>();
 
-        for (Branch branch : repository.findAll()) {
-            branchDistanceMap.put(branch, HaversineDistance.getHaversineDistance(coordinate, branch.getCoordinate()));
+        for (NapBox napBox : repository.findAll()) {
+            branchDistanceMap.put(napBox, HaversineDistance.getHaversineDistance(coordinate, napBox.getCoordinate()));
         }
 
         branchDistanceMap = MapUtil.sortByValue(branchDistanceMap);
 
         Data d = new Data();
-        Branch b = branchDistanceMap.entrySet().iterator().next().getKey();
+        NapBox b = branchDistanceMap.entrySet().iterator().next().getKey();
         logger.debug("The nearest branch was", b.toString());
         d.addBranches(b);
 

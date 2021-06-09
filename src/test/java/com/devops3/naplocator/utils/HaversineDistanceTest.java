@@ -1,6 +1,6 @@
 package com.devops3.naplocator.utils;
 
-import com.devops3.naplocator.model.Branch;
+import com.devops3.naplocator.model.NapBox;
 import com.devops3.naplocator.model.Coordinate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,21 +9,21 @@ import java.util.*;
 
 public class HaversineDistanceTest {
 
-    private List<Branch> branches = new ArrayList<>();
+    private List<NapBox> napBoxes = new ArrayList<>();
     private Coordinate bahay = new Coordinate("14.507301", "121.288814");
-    private Map<Branch, Double> branchDistanceMap;
+    private Map<NapBox, Double> branchDistanceMap;
 
     @BeforeEach
     public void init() {
-        branches = new ArrayList<>();
+        napBoxes = new ArrayList<>();
         branchDistanceMap = new LinkedHashMap<>();
         initBranches();
     }
 
     private void initBranches() {
-        branches.add(new Branch("Max's Restaurant", "14.506324", "121.289577", "Tanay"));
-        branches.add(new Branch("Kamalig Restaurant", "14.508100", "121.287778", "Tanay"));
-        branches.add(new Branch("Kata Cafe", "14.505135", "121.290269", "Tanay"));
+        napBoxes.add(new NapBox("Max's Restaurant", "14.506324", "121.289577", "Tanay"));
+        napBoxes.add(new NapBox("Kamalig Restaurant", "14.508100", "121.287778", "Tanay"));
+        napBoxes.add(new NapBox("Kata Cafe", "14.505135", "121.290269", "Tanay"));
     }
 
     @Test
@@ -67,9 +67,9 @@ public class HaversineDistanceTest {
 
     @Test
     public void haversine_distance_test_on_branch() {
-        branchDistanceMap.put(branches.get(0), HaversineDistance.getHaversineDistance(bahay, branches.get(0).getCoordinate()));
-        branchDistanceMap.put(branches.get(1), HaversineDistance.getHaversineDistance(bahay, branches.get(1).getCoordinate()));
-        branchDistanceMap.put(branches.get(2), HaversineDistance.getHaversineDistance(bahay, branches.get(2).getCoordinate()));
+        branchDistanceMap.put(napBoxes.get(0), HaversineDistance.getHaversineDistance(bahay, napBoxes.get(0).getCoordinate()));
+        branchDistanceMap.put(napBoxes.get(1), HaversineDistance.getHaversineDistance(bahay, napBoxes.get(1).getCoordinate()));
+        branchDistanceMap.put(napBoxes.get(2), HaversineDistance.getHaversineDistance(bahay, napBoxes.get(2).getCoordinate()));
 
         branchDistanceMap = MapUtil.sortByValue(branchDistanceMap);
 

@@ -8,31 +8,31 @@ import java.util.Objects;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
-public class Branch {
+public class NapBox {
 
     private @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;
-    private String branchName;
+    private String napBoxName;
     private String lat;
     private String lon;
     private String address;
 
-    public Branch() {
+    public NapBox() {
 
     }
 
-    public Branch(long id, String branchName, String lat, String lon, String address) {
+    public NapBox(long id, String napBoxName, String lat, String lon, String address) {
         this.id = id;
-        this.branchName = branchName;
+        this.napBoxName = napBoxName;
         this.lat = lat;
         this.lon = lon;
         this.address = address;
     }
 
-    public Branch(String branchName, String lat, String lon, String address) {
+    public NapBox(String napBoxName, String lat, String lon, String address) {
         this.id = id;
-        this.branchName = branchName;
+        this.napBoxName = napBoxName;
         this.lat = lat;
         this.lon = lon;
         this.address = address;
@@ -46,12 +46,12 @@ public class Branch {
         this.id = id;
     }
 
-    public String getBranchName() {
-        return branchName;
+    public String getNapBoxName() {
+        return napBoxName;
     }
 
-    public void setBranchName(String branchName) {
-        this.branchName = branchName;
+    public void setNapBoxName(String napBoxName) {
+        this.napBoxName = napBoxName;
     }
 
     public void setId(long id) {
@@ -91,10 +91,10 @@ public class Branch {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Branch branch = (Branch) o;
-        return id == branch.id &&
-                Objects.equals(lat, branch.lat) &&
-                Objects.equals(lon, branch.lon);
+        NapBox napBox = (NapBox) o;
+        return id == napBox.id &&
+                Objects.equals(lat, napBox.lat) &&
+                Objects.equals(lon, napBox.lon);
     }
 
     @Override
@@ -104,9 +104,9 @@ public class Branch {
 
     @Override
     public String toString() {
-        return "Branch{" +
+        return "NapBox{" +
                 "id=" + id +
-                ", branchName='" + branchName + '\'' +
+                ", napBoxName='" + napBoxName + '\'' +
                 ", lat='" + lat + '\'' +
                 ", lon='" + lon + '\'' +
                 ", address='" + address + '\'' +

@@ -1,6 +1,6 @@
 package com.devops3.naplocator.dto;
 
-import com.devops3.naplocator.model.Branch;
+import com.devops3.naplocator.model.NapBox;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Data {
 
-    private List<Branch> branches;
+    private List<NapBox> napBoxes;
     private Object placeholder;
 
 
@@ -17,15 +17,15 @@ public class Data {
 
     }
 
-    public void addBranches(Branch b){
-        if(branches == null)
-            branches = new ArrayList<>();
+    public void addBranches(NapBox b){
+        if(napBoxes == null)
+            napBoxes = new ArrayList<>();
 
-        branches.add(b);
+        napBoxes.add(b);
     }
 
-    public List<Branch> getBranches() {
-        return branches;
+    public List<NapBox> getBranches() {
+        return napBoxes;
     }
 
     public Object getPlaceholder() {
