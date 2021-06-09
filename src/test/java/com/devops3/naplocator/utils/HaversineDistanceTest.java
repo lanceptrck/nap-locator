@@ -11,16 +11,16 @@ public class HaversineDistanceTest {
 
     private List<NapBox> napBoxes = new ArrayList<>();
     private Coordinate bahay = new Coordinate("14.507301", "121.288814");
-    private Map<NapBox, Double> branchDistanceMap;
+    private Map<NapBox, Double> napBoxDistanceMap;
 
     @BeforeEach
     public void init() {
         napBoxes = new ArrayList<>();
-        branchDistanceMap = new LinkedHashMap<>();
-        initBranches();
+        napBoxDistanceMap = new LinkedHashMap<>();
+        initNapBoxes();
     }
 
-    private void initBranches() {
+    private void initNapBoxes() {
         napBoxes.add(new NapBox("Max's Restaurant", "14.506324", "121.289577", "Tanay"));
         napBoxes.add(new NapBox("Kamalig Restaurant", "14.508100", "121.287778", "Tanay"));
         napBoxes.add(new NapBox("Kata Cafe", "14.505135", "121.290269", "Tanay"));
@@ -66,14 +66,14 @@ public class HaversineDistanceTest {
     }
 
     @Test
-    public void haversine_distance_test_on_branch() {
-        branchDistanceMap.put(napBoxes.get(0), HaversineDistance.getHaversineDistance(bahay, napBoxes.get(0).getCoordinate()));
-        branchDistanceMap.put(napBoxes.get(1), HaversineDistance.getHaversineDistance(bahay, napBoxes.get(1).getCoordinate()));
-        branchDistanceMap.put(napBoxes.get(2), HaversineDistance.getHaversineDistance(bahay, napBoxes.get(2).getCoordinate()));
+    public void haversine_distance_test_on_nap_box() {
+        napBoxDistanceMap.put(napBoxes.get(0), HaversineDistance.getHaversineDistance(bahay, napBoxes.get(0).getCoordinate()));
+        napBoxDistanceMap.put(napBoxes.get(1), HaversineDistance.getHaversineDistance(bahay, napBoxes.get(1).getCoordinate()));
+        napBoxDistanceMap.put(napBoxes.get(2), HaversineDistance.getHaversineDistance(bahay, napBoxes.get(2).getCoordinate()));
 
-        branchDistanceMap = MapUtil.sortByValue(branchDistanceMap);
+        napBoxDistanceMap = MapUtil.sortByValue(napBoxDistanceMap);
 
-        System.out.println(branchDistanceMap.entrySet().iterator().next());
+        System.out.println(napBoxDistanceMap.entrySet().iterator().next());
     }
 
 
