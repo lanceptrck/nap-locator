@@ -28,6 +28,17 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(dto, HttpStatus.NOT_ACCEPTABLE);
     }
 
+    @ExceptionHandler(NumberFormatException.class)
+    public ResponseEntity<?> handleNumberFormatException(NumberFormatException ex) {
+        ErrorDTO dto = new ErrorDTO();
+        dto.setStatus(Status.FAILURE);
+        dto.setError(buildExceptionResponse(ex, "NaN"));
+        dto.setResponseCode(HttpStatus.NOT_ACCEPTABLE.value());
+
+        // 406
+        return new ResponseEntity<>(dto, HttpStatus.NOT_ACCEPTABLE);
+    }
+
     private ExceptionResponse buildExceptionResponse(Exception ex, String errorCode) {
         ExceptionResponse response = new ExceptionResponse();
         response.setErrorMessage(ex.getMessage());

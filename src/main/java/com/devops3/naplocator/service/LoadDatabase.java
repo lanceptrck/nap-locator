@@ -16,10 +16,12 @@ class LoadDatabase {
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
     private List<NapBox> initialNapBoxes = new ArrayList<>();
 
+
+
     public void initializeUsers() {
-        initialNapBoxes.add(new NapBox("Max's Restaurant", "14.506324", "121.289577", "Tanay"));
-        initialNapBoxes.add(new NapBox("Kamalig Restaurant", "14.508100", "121.287778", "Tanay"));
-        initialNapBoxes.add(new NapBox("Kata Cafe", "14.505135", "121.290269", "Tanay"));
+        initialNapBoxes.add(new NapBox("NB MX-325", "14.506324", "121.289577", "Tanay"));
+        initialNapBoxes.add(new NapBox("NB KR-198", "14.508100", "121.287778", "Tanay"));
+        initialNapBoxes.add(new NapBox("NB KC-823", "14.505135", "121.290269", "Tanay"));
     }
 
     @Bean

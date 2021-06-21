@@ -7,7 +7,8 @@ import java.util.List;
 
 public class NapBoxDTO extends GenericDTO{
 
-    List<NapBox> data;
+    private List<NapBox> data;
+    private boolean isServiceable;
 
     public NapBoxDTO(){
         super();
@@ -26,5 +27,13 @@ public class NapBoxDTO extends GenericDTO{
             data = new ArrayList<>();
         }
         data.add(napBox);
+    }
+
+    public boolean isServiceable() {
+        return isServiceable;
+    }
+
+    public void setServiceable(boolean serviceable) {
+        isServiceable = serviceable;
     }
 }
